@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Checkout example · Bootstrap v5.2</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
+</head>
+<style>
+    body {
+        background-image: url("assets/img/demo-image-02.jpg");
+        background-size: cover;
+    }
+    label {
+        text-align: center;
+        display: block;
+    }
+    input[type="text"],
+    input[type="password"] {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+</style>
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4"src="/assets/img/ulsanUVs.png" alt="" width="250" height="100">
+        <h2>가입 정보</h2>
+        <p class="lead">가입된 정보로 홈 화면에서 로그인 부탁드립니다</p>
+    </div>
+    <form method="get" th:object="${member}">
+            <div class="col-12">
+                <label for="name" class="form-label">이름</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="name" name="username" th:field="*{name}" readonly>
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="Jid" class="form-label">아이디<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="Jid" name="id"   th:field="*{id}" readonly>
+            </div>
+
+            <div class="col-12">
+                <label for="Jpwd" class="form-label">비밀번호</label>
+                <input type="password" class="form-control" id="Jpwd" name="pwd"  placeholder="비밀번호는 표시되지 않습니다." readonly>
+            </div>
+
+            <div class="col-12">
+                <label for="Jcall" class="form-label">전화번호 <span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="Jcall" name="call" th:field="*{tell}" readonly >
+            </div>
+            <hr class="my-4">
+    </form>
+    <button class="w-100 btn btn-primary btn-lg" onclick="location.href='/'"> 홈 으로</button>
+</div>
+</div>
+</main>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">Copyright &copy; 1912031 문태진 스프링 기말시험 2023</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+</footer>
+</div>
+</body>
+</html>

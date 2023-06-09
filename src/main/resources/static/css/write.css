@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 5px;
+
+}
+html {
+    /*background: url() no-repeat center fixed;*/
+    background-size: cover;
+
+}
+.write-form tr > th input {
+
+    margin-right: 300px;
+}
+
+.write-form tr > th h2 {
+    text-align: left;
+
+}
+
+
+.write-form {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 50px 50px;
+    text-align: center;
+    border: none;
+
+}
+a{
+    text-decoration-line : none;
+    background-color: white;
+    border: solid 2px black;
+    color: black;
+    font-size: 14px;
+    padding-bottom: 2px;
+    margin: 5px 5px;
+}
+
+.title{
+    background-color: white;
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.104.2">
+  <title>Checkout example · Bootstrap v5.2</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+  <link th:href="@{/css/bootstrap.min.css}"
+        href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+  .container {
+    max-width: 960px;
+  }
+  body {
+    background-image: url("assets/img/demo-image-02.jpg");
+    background-size: cover;
+  }
+  label {
+    text-align: center;
+    display: block;
+  }
+</style>
+<body class="bg-light">
+<div class="container">
+
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/assets/img/ulsanUVs.png" alt="" width="250" height="100">
+    <h2>회원 가입</h2>
+    <p class="lead">Korean mountain web site 에 가입하고 자유롭게 소통해보세요! </p>
+  </div>
+  <form th:action="@{/join}" method="post">
+    <div class="col-12">
+      <label for="name" class="form-label">이름</label>
+      <div class="input-group has-validation">
+        <!--                <span class="input-group-text">@</span>-->
+        <input type="text" class="form-control" id="name" name="name" placeholder="EX)홍길동" required>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="id" class="form-label">아이디<span class="text-muted"></span></label>
+      <input type="text" class="form-control" id="id" name="id" placeholder="EX) KIM111">
+    </div>
+
+    <div class="col-12">
+      <label for="pwd" class="form-label">비밀번호</label>
+      <input type="password" class="form-control" id="pwd"  name="pwd">
+    </div>
+
+    <div class="col-12">
+      <label for="call" class="form-label">전화번호 <span class="text-muted"></span></label>
+      <input type="text" class="form-control" id="call"  name="tell"  placeholder="010-1111-1111">
+    </div>
+    <hr class="my-4">
+
+    <button class="w-100 btn btn-primary btn-lg" type="submit">회원 가입!</button>
+  </form>
+</div>
+</div>
+</main>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">Copyright &copy; 1912031 문태진 스프링 기말시험 2023</p>
+</footer>
+</div>
+</body>
+</html>

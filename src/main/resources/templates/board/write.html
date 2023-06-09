@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/css/write.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<style>
+  body {
+    background-image: url("assets/img/bg-signup.jpg");
+    background-size: cover;
+  }
+  label {
+    text-align: center;
+    display: block;
+  }
+</style>
+<body>
+<form method="post" action="/MTJ1912031/mcontrol?action=write">
+  <div class="write-form">
+    <table er="1" width=500>
+      <tr>
+        <th>
+          <h2> 글 쓰기</h2>
+          <input type="text" maxlength=10 name="writer" readonly>
+        </th>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="text" placeholder="제목을 입력하세요.(50자 제한)" maxlength=30  style="width:100%" name="title" >
+        </td>
+      </tr>
+
+      <tr>
+        <td height=400>
+          <textarea placeholder="내용을 입력하세요.(200자 제한)" style="width: 100%; height: 100%" name="content" maxlength=200></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="submit" value="글쓰기">
+          <a href="/MTJ1912031/bcontrol?action=boardList">글 목록보기</a>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</form>
+</body>
+</html>

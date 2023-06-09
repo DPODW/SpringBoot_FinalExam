@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 목록</title>
+  <style>
+    /* CSS 스타일을 여기에 추가 */
+    body {
+      font-family: Arial, sans-serif;
+        background-image: url("assets/img/bg-signup.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; /* 화면 전체 높이로 설정 */
+        margin: 0; /* body의 기본 마진 제거 */
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+
+    .post-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .post-list-item {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .post-title {
+      font-size: 18px;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+
+    .post-content {
+      margin-top: 5px;
+    }
+
+    .button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>게시글 목록</h1>
+    <div class="buttons">
+      <button class="button">버튼 1</button>
+      <button class="button">버튼 2</button>
+    </div>
+
+<ul class="post-list">
+    <li class="post-list-item">
+          <h2 class="post-title">첫 번째 게시글</h2>
+          <p class="post-content">첫 번째 게시글의 내용입니다.</p>
+          <button class="button">버튼 1</button>
+          <button class="button">버튼 2</button>
+      </li>
+      <li class="post-list-item">
+          <h2 class="post-title">두 번째 게시글</h2>
+          <p class="post-content">두 번째 게시글의 내용입니다.</p>
+          <button class="button">버튼 1</button>
+          <button class="button">버튼 2</button>
+      </li>
+      <li class="post-list-item">
+          <h2 class="post-title">세 번째 게시글</h2>
+          <p class="post-content">세 번째 게시글의 내용입니다.</p>
+          <button class="button">버튼 1</button>
+          <button class="button">버튼 2</button>
+    </li>
+</ul>
+</body>
+</html>
