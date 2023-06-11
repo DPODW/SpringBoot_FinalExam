@@ -12,6 +12,15 @@
           th:href="@{/css/bootstrap.min.css}">
 </head>
 <style>
+    .field-error{
+        border-color: red;
+        color: red;
+        font-size: 18px;
+    }
+
+    p{
+        color: red;
+    }
     .container {
         max-width: 960px;
     }
@@ -30,28 +39,31 @@
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="/assets/img/ulsanUVs.png" alt="" width="250" height="100">
         <h2>회원 수정</h2>
-        <p class="lead">Korean mountain web site 에서 자유롭게 소통해보세요! </p>
+        <p class="lead">회원 수정 시, 재 로그인이 필요합니다. </p>
     </div>
-    <form action="Member.html" th:action  method="post">
+    <form th:action  method="post" th:object="${member}">
+        <input type="hidden" th:field="*{number}" />
             <div class="col-12">
-                <label for="name" class="form-label">이름</label>
-                <div class="input-group has-validation">
-                    <input type="text" class="form-control" id="name" name="username" >
-                </div>
+                <label for="name" class="form-label">이름(10자 이하)</label>
+                    <input type="text" class="form-control" id="name" name="name" th:field="*{name}" >
+                    <h3 th:errorclass="field-error" th:errors="*{name}" ></h3>
             </div>
             <div class="col-12">
-                <label for="Jid" class="form-label">아이디<span class="text-muted"></span></label>
-                <input type="text" class="form-control" id="Jid" name="id" readonly>
-            </div>
-
-            <div class="col-12">
-                <label for="Jpwd" class="form-label">비밀번호</label>
-                <input type="password" class="form-control" id="Jpwd" name="pwd" >
+                <label for="Jid" class="form-label">아이디(3자 이상 12자 이하)<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="Jid" name="id"  th:field="*{id}" readonly>
+                <h3 th:errorclass="field-error" th:errors="*{id}" ></h3>
             </div>
 
             <div class="col-12">
-                <label for="Jcall" class="form-label">전화번호 <span class="text-muted"></span></label>
-                <input type="text" class="form-control" id="Jcall" name="call" >
+                <label for="Jpwd" class="form-label">비밀번호(3자 이상 12자 이하)</label>
+                <input type="password" class="form-control" id="Jpwd" name="pwd"  th:field="*{pwd}">
+                <h3 th:errorclass="field-error" th:errors="*{pwd}" ></h3>
+            </div>
+
+            <div class="col-12">
+                <label for="Jcall" class="form-label">전화번호(11자) <span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="Jcall" name="tell"  th:field="*{tell}" maxlength="11">
+                <h3 th:errorclass="field-error" th:errors="*{tell}" ></h3>
             </div>
             <hr class="my-4">
 
@@ -60,15 +72,6 @@
 </div>
 </div>
 </main>
-
-<footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">Copyright &copy; 1912031 문태진 스프링 기말시험 2023</p>
-<!--    <ul class="list-inline">-->
-<!--        <li class="list-inline-item"><a href="#">Privacy</a></li>-->
-<!--        <li class="list-inline-item"><a href="#">Terms</a></li>-->
-<!--        <li class="list-inline-item"><a href="#">Support</a></li>-->
-<!--    </ul>-->
-</footer>
 </div>
 </body>
 </html>

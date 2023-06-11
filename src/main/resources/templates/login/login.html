@@ -57,14 +57,14 @@
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" id="InsertId" name="id" placeholder="name@example.com">
+            <input type="text" class="form-control" id="InsertId" name="id" required>
             <label for="InsertId">ID</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="InsertPwd" name="pwd" placeholder="Password">
+            <input type="password" class="form-control" id="InsertPwd" name="pwd" placeholder="Password" required>
             <label for="InsertPwd">Password</label>
         </div>
-        <div th:if="${loginFail}" class="login-fail" >로그인에 실패했습니다.</div>
+        <div th:if="${loginFail}" class="login-fail" >존재하지 않는 회원 입니다.</div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <p class="mt-5 mb-3 text-muted">1912031 문태진 스프링 기말시험 2023</p>
     </form>

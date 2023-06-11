@@ -58,7 +58,7 @@
 
     <div class="col-12">
       <label for="call" class="form-label">전화번호(11자) <span class="text-muted"></span></label>
-      <input type="text" class="form-control" id="call"  name="tell"  placeholder="010-1111-1111" th:field="*{tell}" required>
+      <input type="text" class="form-control" id="call"  name="tell"  placeholder="010-1111-1111" th:field="*{tell}" maxlength="11" required>
       <h3 th:errorclass="field-error" th:errors="*{tell}"></h3>
     </div>
     <hr class="my-4">

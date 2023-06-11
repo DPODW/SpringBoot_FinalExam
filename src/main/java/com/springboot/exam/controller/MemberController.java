@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -39,13 +40,14 @@ public class MemberController {
     public String joinEdit(HttpServletRequest request,Model model){
         HttpSession session = request.getSession(false);
         HashMap<String,String> sessionData = (HashMap<String, String>) session.getAttribute(SessionConst.LOGIN_MEMBER);
-        String loginInfo = sessionData.toString().replaceAll("[{}]", "");
-        String[] value = loginInfo.split("=");
-        String key = value[0];
-        String value1 = value[1];
-        log.info("{}",key);
-        log.info("{}",value1);
+        String sessionDataToString = sessionData.toString().replaceAll("[{}]", "");
+        String[] loginInfo = sessionDataToString.split("=");
+        String id = loginInfo[0];
+        String pwd = loginInfo[1];
 
+        List<Member> members = memberService.login(id, pwd);
+        Member member = members.get(0);
+        model.addAttribute(member);
         return "member/joinEdit";
     }
 
@@ -56,13 +58,24 @@ public class MemberController {
 
 
     @PostMapping("/join")
-    public String memberJoin(@Validated @ModelAttribute Member member, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes){
+    public String memberJoin(@Validated @ModelAttribute Member member, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             return "member/join";
         }else
         memberService.save(member);
         model.addAttribute(member);
         return "login/loginMember";
+    }
+
+    @PostMapping("/join1")
+    public String memberUpdate(@Validated @ModelAttribute Member member, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "member/joinEdit";
+        }else {
+            long number = memberService.findNumber(member.getNumber());
+            memberService.update(member,number);
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/login")

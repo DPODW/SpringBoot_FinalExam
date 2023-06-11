@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -19,6 +20,14 @@ public class MemberService {
 
     public void save(Member member){
         memberRepository.save(member);
+    }
+
+    public long findNumber(long number){
+        return memberRepository.findNumber(number);
+    }
+
+    public void update(Member member,Long number){
+        memberRepository.updateMember(member,number);
     }
 
     public List<Member> login(String id, String pwd){
