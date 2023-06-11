@@ -41,17 +41,19 @@
         margin-bottom: 10px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-    }
 
+
+    }
+    .login-fail {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
 </style>
 <body class="text-center">
 
 <main class="form-signin w-100 m-auto">
-    <form th:action method="post">
-        <!--  이미지 부분  -->
+    <form th:action method="post" >
         <img class="mb-4" src="/assets/img/ulsanUVs.png" alt="" width="250" height="100">
-        <!--  이미지 부분  -->
-
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">
@@ -62,9 +64,9 @@
             <input type="password" class="form-control" id="InsertPwd" name="pwd" placeholder="Password">
             <label for="InsertPwd">Password</label>
         </div>
-
+        <div th:if="${loginFail}" class="login-fail" >로그인에 실패했습니다.</div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">Copyright &copy; 1912031 문태진 스프링 기말시험 2023</p>
+        <p class="mt-5 mb-3 text-muted">1912031 문태진 스프링 기말시험 2023</p>
     </form>
 </main>
 </body>

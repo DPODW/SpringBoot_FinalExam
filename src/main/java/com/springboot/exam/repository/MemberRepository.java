@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member,Long> {
-
     @Query("SELECT m FROM Member m WHERE m.id = ?1 AND m.pwd = ?2")
-    List<Member> findLoginInfo(String id ,String pwd);
+    List<Member> findLoginInfo(String id, String pwd);
 }

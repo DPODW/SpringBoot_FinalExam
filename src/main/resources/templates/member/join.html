@@ -12,6 +12,11 @@
         href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
+  .field-error{
+    border-color: red;
+    color: red;
+    font-size: 18px;
+  }
   .container {
     max-width: 960px;
   }
@@ -32,28 +37,29 @@
     <h2>회원 가입</h2>
     <p class="lead">Korean mountain web site 에 가입하고 자유롭게 소통해보세요! </p>
   </div>
-  <form th:action="@{/join}" method="post">
+  <form th:action="@{/join}" method="post" th:object="${member}">
     <div class="col-12">
-      <label for="name" class="form-label">이름</label>
-      <div class="input-group has-validation">
-        <!--                <span class="input-group-text">@</span>-->
-        <input type="text" class="form-control" id="name" name="name" placeholder="EX)홍길동" required>
-      </div>
+      <label for="name" class="form-label">이름(10자 이하)</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="EX)홍길동" th:field="*{name}" required>
+      <h3 th:errorclass="field-error" th:errors="*{name}" ></h3>
     </div>
 
     <div class="col-12">
-      <label for="id" class="form-label">아이디<span class="text-muted"></span></label>
-      <input type="text" class="form-control" id="id" name="id" placeholder="EX) KIM111">
+      <label for="id" class="form-label">아이디(3자 이상 12자 이하)<span class="text-muted"></span></label>
+      <input type="text" class="form-control" id="id" name="id" placeholder="EX) KIM111" th:field="*{id}" required>
+      <h3 th:errorclass="field-error" th:errors="*{id}"></h3>
     </div>
 
     <div class="col-12">
-      <label for="pwd" class="form-label">비밀번호</label>
-      <input type="password" class="form-control" id="pwd"  name="pwd">
+      <label for="pwd" class="form-label">비밀번호(3자 이상 12자 이하)</label>
+      <input type="password" class="form-control" id="pwd"  name="pwd" th:field="*{pwd}" required>
+      <h3 th:errorclass="field-error" th:errors="*{pwd}"></h3>
     </div>
 
     <div class="col-12">
-      <label for="call" class="form-label">전화번호 <span class="text-muted"></span></label>
-      <input type="text" class="form-control" id="call"  name="tell"  placeholder="010-1111-1111">
+      <label for="call" class="form-label">전화번호(11자) <span class="text-muted"></span></label>
+      <input type="text" class="form-control" id="call"  name="tell"  placeholder="010-1111-1111" th:field="*{tell}" required>
+      <h3 th:errorclass="field-error" th:errors="*{tell}"></h3>
     </div>
     <hr class="my-4">
 
