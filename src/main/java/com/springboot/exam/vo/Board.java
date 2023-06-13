@@ -1,35 +1,28 @@
 package com.springboot.exam.vo;
 
 import jakarta.persistence.*;
-
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
 
-
 @Entity
 @Component
-@Table(name = "springtest")
+@Table(name = "board")
 @Data
-public class Member {
+public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long number;
 
     @Column(nullable = false)
-    @Length(min=2,max = 10)
-    private String name;
-
-    @Column(nullable = false)
-    @Length(min = 3,max = 12)
     private String id;
 
     @Column(nullable = false)
-    @Length(min = 3,max = 12)
-    private String pwd;
+    @Length(min=3,max = 20)
+    private String title;
 
     @Column(nullable = false)
-    @Length(min = 11,max = 11)
-    private String tell;
+    @Length(min=5,max = 100)
+    private String content;
 }

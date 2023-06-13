@@ -22,4 +22,9 @@ public class HomeController {
         }
         return "index";
     }
+
+    @GetMapping("/1")
+    public String home1(){
+        return "index1";
+    }
 }

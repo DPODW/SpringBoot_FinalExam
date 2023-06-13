@@ -1,85 +1,140 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>게시글 목록</title>
-  <style>
-    /* CSS 스타일을 여기에 추가 */
-    body {
-      font-family: Arial, sans-serif;
-        background-image: url("assets/img/bg-signup.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh; /* 화면 전체 높이로 설정 */
-        margin: 0; /* body의 기본 마진 제거 */
-    }
+    <meta charset="UTF-8">
+    <title>게시글 목록</title>
+    <style>
+        /* CSS 스타일을 여기에 추가 */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("/assets/img/bg-signup.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh; /* 화면 전체 높이로 설정 */
+            margin: 0; /* body의 기본 마진 제거 */
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
 
-    h1 {
-      text-align: center;
-    }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
+        .button {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
 
-    .post-list {
-      list-style-type: none;
-      padding: 0;
-    }
+        .button:hover {
+            background-color: #fff;
+            color: #007bff;
+            border-color: #007bff;
+        }
 
-    .post-list-item {
-      display: flex;
-      align-items: center;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
+        .post-list {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    .post-title {
-      font-size: 18px;
-      font-weight: bold;
-      flex-grow: 1;
-    }
+        .post-list-item {
+            max-width: 500px; /* 게시글 칸의 최대 가로 크기 */
+            margin: 0 auto; /* 가운데 정렬 */
+            background-color: rgba(255, 255, 255, 0.7); /* 반투명한 배경색 */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex; /* 요소를 가로로 나란히 배치하기 위해 flex 사용 */
+            justify-content: space-between; /* 요소를 양쪽 끝으로 정렬 */
+            align-items: center; /* 요소를 수직 중앙 정렬 */
+            flex-wrap: wrap;
+        }
 
-    .post-content {
-      margin-top: 5px;
-    }
+        .post-list-item > div {
+            flex: 1; /* 요소들이 동일한 너비를 가지도록 설정 */
+        }
 
-    .button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-  </style>
+        .post-list-item .post-content,
+        .post-list-item .post-title {
+            white-space: nowrap; /* 문자열이 너비를 초과할 경우 줄바꿈 없이 표시 */
+            overflow: hidden; /* 너비를 초과한 문자열은 감춤 */
+            text-overflow: ellipsis; /* 너비를 초과한 문자열은 '...'으로 표시 */
+        }
+
+        .post-title {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post-content {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* 버튼 호버 효과 추가 */
+        .post-list-item .button {
+            margin-left: 10px; /* 버튼 사이의 간격 조정 */
+            background-color: transparent;
+            color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .post-list-item .button-group {
+            display: flex; /* 버튼을 가로로 나란히 배치하기 위해 flex 사용 */
+            margin-top: auto;
+        }
+
+        .post-list-item .button:hover {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+    </style>
 </head>
 <body>
-  <h1>게시글 목록</h1>
-    <div class="buttons">
-      <button class="button">버튼 1</button>
-      <button class="button">버튼 2</button>
-    </div>
+<h1>게시글 목록</h1>
+<div class="buttons">
+    <button class="button" onclick="location.href='/board1'">글 작성</button>
+    <button class="button" onclick="location.href='/1'">홈으로</button>
+</div>
 
 <ul class="post-list">
-    <li class="post-list-item">
-          <h2 class="post-title">첫 번째 게시글</h2>
-          <p class="post-content">첫 번째 게시글의 내용입니다.</p>
-          <button class="button">버튼 1</button>
-          <button class="button">버튼 2</button>
-      </li>
-      <li class="post-list-item">
-          <h2 class="post-title">두 번째 게시글</h2>
-          <p class="post-content">두 번째 게시글의 내용입니다.</p>
-          <button class="button">버튼 1</button>
-          <button class="button">버튼 2</button>
-      </li>
-      <li class="post-list-item">
-          <h2 class="post-title">세 번째 게시글</h2>
-          <p class="post-content">세 번째 게시글의 내용입니다.</p>
-          <button class="button">버튼 1</button>
-          <button class="button">버튼 2</button>
+    <li class="post-list-item" th:each="board : ${boardList}">
+        <div>
+            <p class="post-content">글 번호</p>
+            <h2 class="post-title">글 제목</h2>
+            <h2 class="post-title">작성자 ID</h2>
+        </div>
+        <div>
+            <!-- 게시글 정보 출력 -->
+            <a class="post-content" th:text="${board.number}" th:href="@{/boardc/{number}(number=${board.number})}"></a>
+            <h2 class="post-title" th:text="${board.title}"></h2>
+            <h2 class="post-title" th:text="${board.id}"></h2>
+        </div>
+        <div class="button-group">
+            <form th:action="@{/board2/{number}(number=${board.number})}" method="GET" >
+                <button class="button">수정</button>
+            </form>
+            <form>
+                <button class="button">삭제</button>
+            </form>
+        </div>
     </li>
 </ul>
 </body>

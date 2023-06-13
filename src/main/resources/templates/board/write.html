@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="/css/write.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,40 +10,59 @@
 </head>
 <style>
   body {
-    background-image: url("assets/img/bg-signup.jpg");
+    background-image: url("/assets/img/bg-signup.jpg");
     background-size: cover;
+  }
+
+  .field-error{
+    border-color: red;
+    color: red;
+    font-size: 18px;
   }
   label {
     text-align: center;
     display: block;
   }
+
+  .error-message {
+    color: darkred;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+  }
 </style>
 <body>
-<form method="post" action="/MTJ1912031/mcontrol?action=write">
+<form method="post" th:object="${board}" action="/board1">
   <div class="write-form">
     <table er="1" width=500>
       <tr>
         <th>
           <h2> 글 쓰기</h2>
-          <input type="text" maxlength=10 name="writer" readonly>
+
+          <div style="text-align: left">현재 접속중인 아이디</div>
+          <input type="text" th:value="${id}"  maxlength=10 name="id" readonly>
         </th>
       </tr>
 
       <tr>
         <td>
-          <input type="text" placeholder="제목을 입력하세요.(50자 제한)" maxlength=30  style="width:100%" name="title" >
+          <input type="text" placeholder="제목을 입력하세요.(20자 제한)" maxlength=20  style="width:100%" name="title" th:field="*{title}" required>
+          <div class="error-message" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
         </td>
       </tr>
 
       <tr>
-        <td height=400>
-          <textarea placeholder="내용을 입력하세요.(200자 제한)" style="width: 100%; height: 100%" name="content" maxlength=200></textarea>
+        <td height="400">
+          <textarea placeholder="내용을 입력하세요.(100자 제한)" style="width: 100%; height: 100%" name="content" th:field="*{content}" maxlength="100" required></textarea>
         </td>
-      </tr>
       <tr>
         <td>
+          <div class="error-message" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
+        </td>
+      </tr>
+        <td>
           <input type="submit" value="글쓰기">
-          <a href="/MTJ1912031/bcontrol?action=boardList">글 목록보기</a>
+          <a href="/board">글 목록보기</a>
         </td>
       </tr>
 

@@ -13,6 +13,6 @@ public class interceptorConfig implements WebMvcConfigurer {
         registry.addInterceptor(new SessionInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/","/join","/login","/static");
+                .excludePathPatterns("/","/join","/login","/css/**","/js/**","/assets/**");
     }
 }

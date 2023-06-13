@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="/css/write.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 </head>
 <style>
   body {
-    background-image: url("assets/img/bg-signup.jpg");
+    background-image: url("/assets/img/bg-signup.jpg");
     background-size: cover;
   }
   label {
@@ -18,30 +16,33 @@
   }
 </style>
 <body>
-<form method="post" action="/MTJ1912031/mcontrol?action=write">
+<form method="post" th:object="${board}" action="/board2">
   <div class="write-form">
     <table er="1" width=500>
       <tr>
         <th>
           <h2> 글 수정</h2>
-          <input type="text" maxlength=10 name="writer" readonly>
+          <input type="text"  name="id" th:field="${board.id}" readonly>
+          <input type="hidden"  name="number" th:field="${board.number}" readonly>
         </th>
       </tr>
 
       <tr>
         <td>
-          <input type="text" placeholder="제목을 입력하세요.(50자 제한)" maxlength=30  style="width:100%" name="title" >
+          <input type="text" placeholder="제목을 입력하세요.(50자 제한)" maxlength=30  style="width:100%" name="title" th:field="${board.title}">
+          <div class="error-message" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
         </td>
       </tr>
 
       <tr>
         <td height=400>
-          <textarea placeholder="내용을 입력하세요.(200자 제한)" style="width: 100%; height: 100%" name="content" maxlength=200></textarea>
+          <textarea placeholder="내용을 입력하세요.(200자 제한)" style="width: 100%; height: 100%" name="content" maxlength=200 th:field="*{content}"></textarea>
+          <div class="error-message" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
         </td>
       </tr>
       <tr>
         <td>
-          <a href="/MTJ1912031/mcontrol?action=index">홈 화면으로</a>
+          <a href="/board">홈 화면으로</a>
           <input type="submit" value="글수정">
         </td>
       </tr>

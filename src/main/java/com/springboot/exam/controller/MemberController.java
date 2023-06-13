@@ -86,7 +86,7 @@ public class MemberController {
             sessionInfo.put(id,pwd);
             session.setAttribute(SessionConst.LOGIN_MEMBER,sessionInfo);
 
-            return "index1";
+            return "redirect:/1";
         }else
             model.addAttribute("loginFail",true);
             return "login/login";

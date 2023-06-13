@@ -26,7 +26,7 @@
     }
 
     body {
-        background-image: url("assets/img/demo-image-02.jpg");
+        background-image: url("/assets/img/demo-image-02.jpg");
         background-size: cover;
     }
     label {
@@ -37,7 +37,9 @@
 <body class="bg-light">
 <div class="container">
     <div class="py-5 text-center">
+        <a href="/1">
         <img class="d-block mx-auto mb-4" src="/assets/img/ulsanUVs.png" alt="" width="250" height="100">
+        </a>
         <h2>회원 수정</h2>
         <p class="lead">회원 수정 시, 재 로그인이 필요합니다. </p>
     </div>
@@ -45,18 +47,18 @@
         <input type="hidden" th:field="*{number}" />
             <div class="col-12">
                 <label for="name" class="form-label">이름(10자 이하)</label>
-                    <input type="text" class="form-control" id="name" name="name" th:field="*{name}" >
+                    <input type="text" class="form-control" id="name" name="name" maxlength="10" th:field="*{name}" >
                     <h3 th:errorclass="field-error" th:errors="*{name}" ></h3>
             </div>
             <div class="col-12">
                 <label for="Jid" class="form-label">아이디(3자 이상 12자 이하)<span class="text-muted"></span></label>
-                <input type="text" class="form-control" id="Jid" name="id"  th:field="*{id}" readonly>
+                <input type="text" class="form-control" id="Jid" name="id" maxlength="12" th:field="*{id}" readonly>
                 <h3 th:errorclass="field-error" th:errors="*{id}" ></h3>
             </div>
 
             <div class="col-12">
                 <label for="Jpwd" class="form-label">비밀번호(3자 이상 12자 이하)</label>
-                <input type="password" class="form-control" id="Jpwd" name="pwd"  th:field="*{pwd}">
+                <input type="password" class="form-control" id="Jpwd" name="pwd" maxlength="12"  th:field="*{pwd}">
                 <h3 th:errorclass="field-error" th:errors="*{pwd}" ></h3>
             </div>
 
