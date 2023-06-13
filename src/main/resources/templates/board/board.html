@@ -131,7 +131,7 @@
             <form th:action="@{/board2/{number}(number=${board.number})}" method="GET" >
                 <button class="button">수정</button>
             </form>
-            <form>
+            <form th:action="@{/board3/{number}(number=${board.number})}" method="post">
                 <button class="button">삭제</button>
             </form>
         </div>

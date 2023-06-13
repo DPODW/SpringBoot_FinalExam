@@ -89,12 +89,10 @@ public class BoardController {
         }
 
 
-
-    @PostMapping("/board3")
-    public String boardDelete(){
-
-
-            return "";
+    @PostMapping("/board3/{number}")
+    public String boardDelete(@PathVariable("number") Long number){
+            boardService.deleteContent(number);
+            return "redirect:/board";
         }
 
 

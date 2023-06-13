@@ -14,6 +14,14 @@
     text-align: center;
     display: block;
   }
+
+  .error-message {
+    color: darkred;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-top: 5px; /* 에러 메시지와 입력 칸 사이의 간격 조정 */
+  }
 </style>
 <body>
 <form method="post" th:object="${board}" action="/board2">
@@ -22,7 +30,8 @@
       <tr>
         <th>
           <h2> 글 수정</h2>
-          <input type="text"  name="id" th:field="${board.id}" readonly>
+          <div style="text-align: left">현재 접속중인 아이디</div>
+          <input style="margin-right: 330px" type="text"  name="id" th:field="${board.id}" readonly>
           <input type="hidden"  name="number" th:field="${board.number}" readonly>
         </th>
       </tr>
@@ -37,9 +46,12 @@
       <tr>
         <td height=400>
           <textarea placeholder="내용을 입력하세요.(200자 제한)" style="width: 100%; height: 100%" name="content" maxlength=200 th:field="*{content}"></textarea>
-          <div class="error-message" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
         </td>
       </tr>
+      <td>
+        <div class="error-message" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
+      </td>
+
       <tr>
         <td>
           <a href="/board">홈 화면으로</a>

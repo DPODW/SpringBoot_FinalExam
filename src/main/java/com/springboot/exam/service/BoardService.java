@@ -31,4 +31,8 @@ public class BoardService {
     public void updateContent(Board board,Long number){
          boardRepository.updateContent(board,number);
     }
+
+    public void deleteContent(Long number){
+        boardRepository.deleteById(number);
+    }
 }
