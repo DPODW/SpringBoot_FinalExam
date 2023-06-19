@@ -4,11 +4,11 @@
     border-radius: 5px;
 
 }
-html {
-    /*background: url() no-repeat center fixed;*/
-    background-size: cover;
+/*html {*/
+/*    !*background: url() no-repeat center fixed;*!*/
+/*    background-size: cover;*/
 
-}
+/*}*/
 .write-form tr > th input {
 
     margin-right: 300px;
@@ -41,4 +41,27 @@ a{
 
 .title{
     background-color: white;
+}
+
+
+body {
+    background-image: url("../assets/img/bg-signup.jpg");
+    background-size: cover;
+}
+
+.field-error{
+    border-color: red;
+    color: red;
+    font-size: 18px;
+}
+label {
+    text-align: center;
+    display: block;
+}
+
+.error-message {
+    color: darkred;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
 }

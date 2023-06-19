@@ -1,36 +1,11 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="/css/write.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>spring web project 1912031</title>
 </head>
-<style>
-  body {
-    background-image: url("/assets/img/bg-signup.jpg");
-    background-size: cover;
-  }
-
-  .field-error{
-    border-color: red;
-    color: red;
-    font-size: 18px;
-  }
-  label {
-    text-align: center;
-    display: block;
-  }
-
-  .error-message {
-    color: darkred;
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 5px;
-  }
-</style>
 <body>
 <form method="post" th:object="${board}" action="/board1">
   <div class="write-form">
@@ -38,9 +13,8 @@
       <tr>
         <th>
           <h2> 글 쓰기</h2>
-
           <div style="text-align: left">현재 접속중인 아이디</div>
-          <input type="text" th:value="${id}"  maxlength=10 name="id" readonly>
+          <input type="text" style="margin-right: 330px" th:value="${id}"  maxlength=10 name="id" readonly>
         </th>
       </tr>
 
@@ -63,6 +37,7 @@
         <td>
           <input type="submit" value="글쓰기">
           <a href="/board">글 목록보기</a>
+          <a href="/"   class="nav-link" >main home</a>
         </td>
       </tr>
 

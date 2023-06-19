@@ -33,6 +33,7 @@ public class MemberController {
     @GetMapping("/join")
     public String join(Member member,Model model){
         model.addAttribute("member", member);
+
         return "member/join";
     }
 
@@ -47,6 +48,8 @@ public class MemberController {
 
         List<Member> members = memberService.login(id, pwd);
         Member member = members.get(0);
+
+        model.addAttribute("session",session.getAttribute(SessionConst.LOGIN_MEMBER));
         model.addAttribute(member);
         return "member/joinEdit";
     }

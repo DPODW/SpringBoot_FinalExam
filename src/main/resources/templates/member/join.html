@@ -2,12 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.104.2">
-  <title>Checkout example · Bootstrap v5.2</title>
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+  <title>spring web project 1912031</title>
   <link th:href="@{/css/bootstrap.min.css}"
         href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -33,7 +28,9 @@
 <div class="container">
 
   <div class="py-5 text-center">
+    <a href="/">
     <img class="d-block mx-auto mb-4" src="/assets/img/ulsanUVs.png" alt="" width="250" height="100">
+    </a>
     <h2>회원 가입</h2>
     <p class="lead">Korean mountain web site 에 가입하고 자유롭게 소통해보세요! </p>
   </div>
@@ -58,7 +55,7 @@
 
     <div class="col-12">
       <label for="call" class="form-label">전화번호(11자) <span class="text-muted"></span></label>
-      <input type="text" class="form-control" id="call"  name="tell"  placeholder="010-1111-1111" th:field="*{tell}" maxlength="11" required>
+      <input type="text" class="form-control" id="call"  name="tell"  placeholder="01012345678" th:field="*{tell}" maxlength="11" required>
       <h3 th:errorclass="field-error" th:errors="*{tell}"></h3>
     </div>
     <hr class="my-4">

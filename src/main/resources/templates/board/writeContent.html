@@ -1,12 +1,10 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="/css/write.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>spring web project 1912031</title>
 </head>
 <style>
   body {
@@ -24,7 +22,8 @@
       <tr>
         <th>
           <h2> 글 본문</h2>
-          <input type="text"  name="id" th:value="${board.id}" readonly>
+          <div style="text-align: left">현재 접속중인 아이디</div>
+          <input type="text" style="margin-right: 330px" name="id" th:value="${board.id}" readonly>
         </th>
       </tr>
 
@@ -42,6 +41,7 @@
       <tr>
         <td>
           <a href="/board">게시글 목록으로</a>
+          <a href="/" class="nav-link" >main home</a>
         </td>
       </tr>
     </table>

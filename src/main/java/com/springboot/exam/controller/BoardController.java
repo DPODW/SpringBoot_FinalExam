@@ -29,7 +29,6 @@ public class BoardController {
     public String board(Model model){
         List<Board> boards = boardService.boardList();
         model.addAttribute(boards);
-        log.info("{}",boards);
         return "board/board";
     }
 
